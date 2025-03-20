@@ -1,5 +1,21 @@
 Skills4Future Workshop stuff
 
-Machine learning:
+MACHINE LEARNING:
 Supervised: Classification, Regression
 Unsupervied: Clustering, Dimensionality Reduction
+
+Neural network/deep learning 3 important levels:
+input, hidden-extract info, output
+
+DIFFERENCE:
+machine learning/deep learning
+simple data/complex data
+not so accurate/accurate
+low resources/high resources        low computational power/high computational power
+manual feature extraction/automatic
+modearte dataset size/huge dataset size
+
+Activation function:
+1. Sigmoid function: class 0: if value >0.5, class 1:                   Used for Binary Classification task
+2. ReLU function: used in hidden level: if negative x value then it is turned to 0
+3. Softout function: output layer, used in multi class Classification
