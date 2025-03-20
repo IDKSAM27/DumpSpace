@@ -1,1 +1,5 @@
 Skills4Future Workshop stuff
+
+Machine learning:
+Supervised: Classification, Regression
+Unsupervied: Clustering, Dimensionality Reduction
