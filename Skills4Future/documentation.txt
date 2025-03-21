@@ -1,13 +1,27 @@
+### IMPORTANT STUFF ###
+
+In computer_science/waste_classification_api.ipynb:
+    The dataset downloaded is excluded i.e., added to .gitignore
+
+
+
+
+
+
+
+
 Skills4Future Workshop stuff
 
 MACHINE LEARNING:
 Supervised: Classification, Regression
 Unsupervied: Clustering, Dimensionality Reduction
 
+
+DEEP LEARNING
 Neural network/deep learning 3 important levels:
 input, hidden-extract info, output
 
-DIFFERENCE:
+Difference:
 machine learning/deep learning
 simple data/complex data
 not so accurate/accurate
@@ -20,7 +34,7 @@ Activation function:
 2. ReLU function: used in hidden level: if negative x value then it is turned to 0
 3. Softout function: output layer, used in multi class Classification
 
-Computer Vision 
+COMPUTER VISION
 
 Techniques:
 1. Image Classification
@@ -30,13 +44,15 @@ Techniques:
 
 Architecture of Convolution Neural Network (CNN):
 1. Input
-2. Convolution
-3. Pooling
-4. Fully Connected
+2. Convolution - to tranform
+3. Pooling - Maxpooling
+4. Fully Connected 
 5. Output
 
 Convolution is a mathematical operation that combines two functions (or signals) to produce a third function. It is widely used in image processing, signal processing, and deep learning.
 
 Reason for:
-from tensorflow.keras.models import Sequential: where the layers are in sequence
+from tensorflow.keras.models import Sequential: where the layers are in sequence(Sequential)
+
+
 
