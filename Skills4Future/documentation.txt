@@ -3,12 +3,7 @@
 In computer_science/waste_classification_api.ipynb:
     The dataset downloaded is excluded i.e., added to .gitignore
 
-
-
-
-
-
-
+======================================================================================================================
 
 Skills4Future Workshop stuff
 
@@ -54,5 +49,13 @@ Convolution is a mathematical operation that combines two functions (or signals)
 Reason for:
 from tensorflow.keras.models import Sequential: where the layers are in sequence(Sequential)
 
+GENERATIVE AI
+Genrates according to the prompt
+
+AI ETHICS
+
+1. Rules 
+2. Principle
+3. Moral values
 
 

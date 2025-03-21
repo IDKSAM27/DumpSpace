@@ -1,3 +1,4 @@
+# made in 2 min
 import pygame
 import random
 import math
