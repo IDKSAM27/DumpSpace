@@ -58,4 +58,17 @@ AI ETHICS
 2. Principle
 3. Moral values
 
+data bias
+algorithm bias
+privacy
+accountability
 
+=======================================================================================================================
+
+To sum it up,
+This dir consists of:
+Basics: basics of python
+Machine Learning: Simple regression, Logistic Regression, k-means Clustering
+Deep Learning: Simple FNN for Energy prediction
+Computer vision: Waste Classification using API
+Generative AI: pygame
