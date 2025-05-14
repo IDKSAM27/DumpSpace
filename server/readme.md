@@ -78,7 +78,7 @@
 
 ##  Testing
 
-You can test this project by:
+You can test this project by (making changes):
 - Connecting a custom H.264-compatible client (e.g. FFmpeg, GStreamer, or VLC with a proper wrapper).
 - Writing a desktop application that connects to `PORT 8080` and decodes H.264 streams.
 
