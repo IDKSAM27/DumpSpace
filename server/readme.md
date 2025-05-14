@@ -94,7 +94,7 @@ You can test this project by:
 
 ##  License
 
-MIT License – feel free to use and modify this project.
+[MIT License](https://github.com/IDKSAM27/DumpSpace/tree/main/android_server/LICENSE) – feel free to use and modify this project.
 
 ---
 
