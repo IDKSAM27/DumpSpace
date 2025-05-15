@@ -1,6 +1,6 @@
-# android_server
+# android-server
 
-**`android_server`** is an Android application that captures the device's screen in real-time, encodes it using H.264, and streams the video to a connected client over a local socket. It leverages Android’s `MediaProjection` API for screen capture and `MediaCodec` for hardware-accelerated encoding.
+**`android-server`** is an Android application that captures the device's screen in real-time, encodes it using H.264, and streams the video to a connected client over a local socket. It leverages Android’s `MediaProjection` API for screen capture and `MediaCodec` for hardware-accelerated encoding.
 
 ## Features
 
@@ -25,8 +25,8 @@
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/yourusername/android_server.git
-    cd android_server
+    git clone https://github.com/yourusername/android-server.git
+    cd android-server
     ```
 
 2. Open the project in Android Studio.
@@ -94,7 +94,7 @@ You can test this project by (making changes):
 
 ##  License
 
-[MIT License](https://github.com/IDKSAM27/DumpSpace/tree/main/android_server/LICENSE) – feel free to use and modify this project.
+[MIT License](https://github.com/IDKSAM27/DumpSpace/tree/main/android-server/LICENSE) – feel free to use and modify this project.
 
 ---
 
