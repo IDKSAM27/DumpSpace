@@ -1,4 +1,3 @@
-# Weighted Regression
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -30,7 +29,7 @@ def generate_noisy_data(n=100):
     """Generates noisy sinusoidal data."""
     np.random.seed(42)  # For reproducibility
     X = np.linspace(-3, 3, n)
-    Y = np.sin(X)# + np.random.normal(0, 0.3, n)
+    Y = np.sin(X) + np.random.normal(0, 0.3, n)
     return X, Y
 
 def plot_lwr(X, Y, tau):
@@ -57,4 +56,3 @@ X = np.array([[1, x] for x in X]) #adding bias term to feature matrix
 plot_lwr(X, Y, tau=0.3)
 plot_lwr(X, Y, tau=0.8)
 plot_lwr(X,Y, tau=0.05)
-plot_lwr(X,Y, tau=0.01)
