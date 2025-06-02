@@ -3,24 +3,33 @@ import easyocr
 import matplotlib.pyplot as plt
 import os
 
-# Dynamically get the directory of the current script
+# Preprocess image: grayscale, blur, threshold, resize
+def preprocess_image(image, scale_factor=2):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(gray, (3, 3), 0)
+    _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    resized = cv2.resize(thresh, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_CUBIC)
+    return resized, scale_factor
+
+# Get script directory and image path
 script_dir = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(script_dir, 'images')
-
-# Supported image formats
 image_extensions = ('.jpg', '.jpeg', '.png', '.bmp')
 
-# Get all image files in the directory
+# Collect image files
 try:
     image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(image_extensions)]
+    if not image_files:
+        print("No image files found in the 'images' directory.")
+        exit()
 except FileNotFoundError:
     print(f"Image directory not found: {image_dir}")
-    exit(1)
+    exit()
 
-# Initialize EasyOCR Reader
-reader = easyocr.Reader(['en'], gpu=False)  # Set gpu=True if you have a GPU
+# Initialize EasyOCR
+reader = easyocr.Reader(['en'], gpu=False)
 
-# Loop through all image files
+# Process each image
 for image_file in image_files:
     image_path = os.path.join(image_dir, image_file)
     image = cv2.imread(image_path)
@@ -29,27 +38,29 @@ for image_file in image_files:
         print(f"Could not load image: {image_path}")
         continue
 
-    # Convert BGR to RGB
-    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    # Preprocess image and get resized version
+    processed_image, scale_factor = preprocess_image(image)
 
-    # Perform OCR
-    results = reader.readtext(image_path, detail=1)
+    # Perform OCR on processed (resized) image
+    results = reader.readtext(processed_image, detail=1, allowlist='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
-    # Display results
     print(f'\nResults for: {image_file}')
     for (bbox, text, confidence) in results:
         print(f'Detected: "{text}" with confidence {confidence:.2f}')
-        # Draw bounding boxes
-        (top_left, top_right, bottom_right, bottom_left) = bbox
-        top_left = tuple(map(int, top_left))
-        bottom_right = tuple(map(int, bottom_right))
+
+        # Scale bounding box back to original image coordinates
+        scaled_bbox = [(int(x / scale_factor), int(y / scale_factor)) for (x, y) in bbox]
+        (top_left, top_right, bottom_right, bottom_left) = scaled_bbox
+
+        # Draw boxes and text on original image
         cv2.rectangle(image, top_left, bottom_right, (0, 255, 0), 2)
         cv2.putText(image, text, (top_left[0], top_left[1] - 10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
 
-    # Show the image with boxes
+    # Display the result
     plt.figure(figsize=(10, 10))
     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     plt.axis('off')
     plt.title(f'OCR Results: {image_file}')
     plt.show()
+    plt.close()
