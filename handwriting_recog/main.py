@@ -2,7 +2,7 @@ import cv2
 import easyocr
 import matplotlib.pyplot as plt
 
-image_path = r'C:\Users\Sampreet\Downloads\mu_boli_sex.png'
+image_path = r'D:\Code_dumpspace\some_python_stuff\images\fourfour.jpg'
 
 image = cv2.imread(image_path)
 
