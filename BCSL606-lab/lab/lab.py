@@ -1,26 +1,33 @@
 import numpy as np
-import pandas as pd
+from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.datasets import fetch_california_housing
 
-def analyze_california_housing():
-    try:
-        california = fetch_california_housing(as_frame=True)
-        df = california.frame
+def pca(X, n_components):
+    X_meaned = X - np.mean(X, axis = 0)
 
-        correlation_matrix = df.corr()
+    cov_mat = np.cov(X_meaned, rowvar=False)
 
-        plt.figure(figsize=(10, 8))
-        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
-        plt.title('Correlation Matrix of California Housing Features')
-        plt.show()
+    eigen_values, eigen_vectors = np.linalg.eigh(cov_mat)
 
-        sns.pairplot(df)
-        plt.show()
+    sorted_index = np.argsort(eigen_values)[::-1]
+    sorted_eigenvectors = eigen_vectors[:, sorted_index]
 
-    except Exception as e:
-        print(f"An error occured: {e}")
+    principal_components = sorted_eigenvectors[:,:n_components]
 
-if __name__ == "__main__":
-    analyze_california_housing()
+    X_transformed = np.dot(X_meaned, principal_components)
+
+    return X_transformed
+
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+X_pca = pca(X, 2)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=y, cmap='viridis')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('PCA of Iris Dataset')
+plt.colorbar(ticks=np.unique(y), label='Species')
+plt.show()
