@@ -1,3 +1,4 @@
 waste_classification_data/
 .venv/
 .vscode/
+.env

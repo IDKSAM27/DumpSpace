@@ -1,21 +1,28 @@
+# if local, pip install python-dotenv
+
 # Step 1: Install necessary libraries 
  
 # Step 2: Import the required modules 
-from langchain.llms import Cohere 
+
+from langchain_community.llms import Cohere
+from langchain.chains import LLMChain
+
 from langchain.prompts import PromptTemplate 
-from langchain import LLMChain 
+from dotenv import load_dotenv
+import os
 # from google.colab import drive 
  
 # Step 3: Mount Google Drive to access the document 
 # drive.mount('/content/drive') 
  
 # Step 4: Load the text document from Google Drive 
-file_path = "utils/sample_text.txt"  # Change this path to your file location 
+file_path = "D:/Code_dumpspace/GenAI/utils/sample_text.txt"  # Change this path to your file location 
 with open(file_path, "r") as file: 
     text = file.read() 
  
 # Step 5: Set up Cohere API key 
-cohere_api_key = "YOUR_COHERE_API_KEY"  # Replace with your actual Cohere API key 
+# cohere_api_key = "COHERE_API_KEY"  # Replace with your actual Cohere API key 
+cohere_api_key = os.getenv("COHERE_API_KEY")
  
 # Step 6: Create a prompt template 
 prompt_template = """ 
