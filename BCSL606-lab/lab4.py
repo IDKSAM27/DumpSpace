@@ -1,3 +1,5 @@
+# Find S algorithm
+
 import pandas as pd
 
 def find_s_algorithm():
