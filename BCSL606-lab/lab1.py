@@ -1,6 +1,15 @@
 # Develop a program to create histograms for all numerical features and analyse the distribution of each feature. Generate
 # box plots for all numerical features and identify any outliers. Use California Housing dataset.
 
+"""
+Histogram
+Box plot
+Then: 
+    Feature: 
+    Number of outliers:
+    Too many outliers to display. (if outliers >20) else No outliers detected (outliers = 0)
+"""
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
