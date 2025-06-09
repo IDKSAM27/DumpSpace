@@ -1,3 +1,7 @@
+'''
+Develop a program to implement Principal component analysis for reducing the dimensionality of the Iris dataset from 4 to 2 features
+'''
+
 import numpy as np
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
