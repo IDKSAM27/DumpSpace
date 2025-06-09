@@ -1,5 +1,7 @@
 '''
-For a given set of training data examples stores in a .csv file, implement and demonstrate the Find-S algo to output a description of the set of all hypotheses consistent with the training examples
+For a given set of training data examples stores in a .csv file, 
+implement and demonstrate the Find-S algo to output a description of the 
+set of all hypotheses consistent with the training examples
 '''
 
 import pandas as pd

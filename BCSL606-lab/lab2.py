@@ -2,6 +2,15 @@
 # the correlation matrix using a heatmap to know which variables have strong +ve/-ve correlations.
 # Create a pair plot to visualize pairwise relationships between features. Use California Housing dataset.
 
+'''
+2 outputs'''
+
+'''
+1. Correlation matrix
+2. Heatmap of the Corr matrix
+3. Pairplot again using sns
+'''
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

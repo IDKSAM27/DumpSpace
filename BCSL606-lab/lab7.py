@@ -1,3 +1,9 @@
+'''
+7. Develop a program to demonstrate the working of Linear Regression and Polynomial Regression.
+Use Boston Housing Dataset for Linear Regression and Auto MPG Dataset (for vehicle 
+fuel efficiency prediction) for Polynomial Regression.
+'''
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -34,6 +40,7 @@ plt.ylabel("MedianHouseValue")
 plt.legend()
 plt.tight_layout()
 plt.show()
+
 
 print("\n---Polynomial RegressiononAuto MPG---")
 
