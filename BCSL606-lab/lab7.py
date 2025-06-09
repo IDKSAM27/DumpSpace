@@ -14,7 +14,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error,r2_score
 
-print("\n---LinearRegressiononCaliforniaHousing---")
+print("\n---Linear Regression on California Housing---")
 housing=fetch_california_housing()
 df=pd.DataFrame(housing.data,columns=housing.feature_names)
 df['MedHouseVal'] =housing.target
@@ -34,15 +34,15 @@ print("R2Score:",r2_score(y_test,y_pred))
 plt.figure(figsize=(8,6))
 sns.scatterplot(x=X_test['MedInc'],y=y_test, label="Actual")
 sns.lineplot(x=X_test['MedInc'],y=y_pred, color='red',label="Predicted")
-plt.title("Linear Regression:MedIncvsMedHouseVal")
-plt.xlabel("MedianIncome")
-plt.ylabel("MedianHouseValue")
+plt.title("Linear Regression: MedInc vs MedHouseVal")
+plt.xlabel("Median Income")
+plt.ylabel("Median House Value")
 plt.legend()
 plt.tight_layout()
 plt.show()
 
 
-print("\n---Polynomial RegressiononAuto MPG---")
+print("\n---Polynomial Regressionon Auto MPG---")
 
 url= "http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data"
 columns=["mpg", "cylinders","displacement","horsepower", "weight",
@@ -75,9 +75,9 @@ y_range_pred= poly_model.predict(X_range_poly)
 plt.figure(figsize=(8,6))
 sns.scatterplot(x=X_test['horsepower'],y=y_test,label="Actual")
 sns.lineplot(x=X_range.flatten(),y=y_range_pred,color='green',label="PolynomialFit")
-plt.title("PolynomialRegression:HorsepowervsMPG")
+plt.title("Polynomial Regression : Horsepower vs MPG")
 plt.xlabel("Horsepower")
-plt.ylabel("MilesperGallon(MPG)")
+plt.ylabel("Milesper Gallon(MPG)")
 plt.legend()
 plt.tight_layout()
 plt.show()

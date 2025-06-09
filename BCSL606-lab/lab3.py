@@ -1,5 +1,5 @@
 '''
-Develop a program to implement Principal component analysis for reducing the dimensionality of the Iris dataset from 4 to 2 features
+3. Develop a program to implement Principal component analysis for reducing the dimensionality of the Iris dataset from 4 to 2 features
 '''
 
 import numpy as np

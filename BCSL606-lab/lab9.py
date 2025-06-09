@@ -1,3 +1,8 @@
+'''
+9. Develop a program to impelement the Naive Bayesian Classifier considering Olivetti Face Data set for training.
+Compute the accuracy of the classifier, considering a few test data sets.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_olivetti_faces
@@ -17,7 +22,7 @@ gnb.fit(X_train,y_train)
 y_pred= gnb.predict(X_test)
 
 acc= accuracy_score(y_test,y_pred)
-print("AccuracyofGaussianNaiveBayesonOlivettiFaces:", acc)
+print("Accuracy of Gaussian Naive Bayes on Olivetti Faces:", acc)
 print("\nClassificationReport:\n",classification_report(y_test,y_pred))
 
 def show_images(images, labels,preds,n=10):
