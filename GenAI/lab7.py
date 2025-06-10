@@ -1,5 +1,6 @@
 '''
-
+7. Summarize long texts using a pre-trained summarization model using Hugging face model.
+Load the summarization pipeline. Take a passage as input and obtain the summarized text.
 '''
 
 # Step 1: Import the Hugging Face pipeline 

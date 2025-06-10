@@ -2,8 +2,6 @@
 1. Explore pre-trained word vectors. Explore word relationships using vector arithmetic.
 Perform arithmetic operations and analyze results.
 '''
-
-from gensim.models import KeyedVectors 
  
 # Load pre-trained GloVe vectors (100-dimensional) 
 from gensim.downloader import load 

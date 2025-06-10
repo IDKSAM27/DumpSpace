@@ -13,8 +13,7 @@ medical_data = [
     ["heart", "disease", "surgery", "cardiology", "recovery"] ] 
  
 # Step 2: Train a Word2Vec model 
-model = Word2Vec(sentences=medical_data, vector_size=10, window=2, 
-min_count=1, workers=1, epochs=50) 
+model = Word2Vec(sentences=medical_data, vector_size=10, window=2, min_count=1, workers=1, epochs=50) 
  
 # Step 3: Find similar words for a given input word 
 input_word = "patient" 
