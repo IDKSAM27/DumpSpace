@@ -1,3 +1,10 @@
+'''
+2. Use dimensionality reduction to visualize word embeddings for Q1
+Select 10 words from a specific domain and visualize their embeddings. Analyze clusters and relationships
+Generate contextually rich outputs using embeddings.
+Write a program to generate 5 semantically similar words for a given input.
+'''
+
 import matplotlib.pyplot as plt 
 from sklearn.manifold import TSNE 
 from gensim.downloader import load 
