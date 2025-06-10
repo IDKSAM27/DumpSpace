@@ -1,3 +1,8 @@
+'''
+3. Train a custom Word2Vec model on a small dataset. Train embeddings on a domain-specific corpus
+and analyze how embeddings capture domain-specific semantics
+'''
+
 from gensim.models import Word2Vec 
  
 # Step 1: Create a small dataset (list of medical-related word lists) 

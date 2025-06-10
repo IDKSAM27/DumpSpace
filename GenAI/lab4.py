@@ -1,3 +1,10 @@
+'''
+4. Use word embeddings to improve prompts for Generative AI model.
+Retrieve similar words using word embeddings. Use the similar words to enrich a
+GenAI prompt. Use the AI model to generate responses for the original and enriched prompts. Compare the outputs in terms of
+details and relevance
+'''
+
 # Step 1: Pre-defined dictionary of words and their similar terms (static word embeddings) 
 word_embeddings = { 
     "ai": ["machine learning", "deep learning", "data science"], 
