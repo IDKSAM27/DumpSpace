@@ -1,3 +1,8 @@
+'''
+6. Use a pre-trained Hugging Face model to analyze sentiment in text. Assume a real world application, 
+Load the sentiment analysis pipeline. Analyze the sentiment by giving sentences to input.
+'''
+
 # Step 1: Install and import the necessary library 
 # You can uncomment and run this in Google Colab 
 # !pip install transformers 

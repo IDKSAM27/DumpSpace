@@ -1,3 +1,8 @@
+'''
+5. Use word embeddings to create meaningful sentences for creative tasks. Retrieve similar words for a seed word.
+Create a sentence or story using these words as a starting point. Write a program that:
+Takes a seed word. Generate similar words. Cosntructs a short paragraph using these words.
+'''
 
 # Step 1: Pre-defined dictionary of words and their similar terms 
 word_embeddings = { 

@@ -1,3 +1,7 @@
+'''
+
+'''
+
 # Step 1: Import the Hugging Face pipeline 
 from transformers import pipeline 
  
