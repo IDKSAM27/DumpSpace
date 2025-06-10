@@ -1,3 +1,13 @@
+'''
+9. Take the institution name as input. Use pydantic to define the schema for the desired output and create custom
+output parser. Invoke the Chain and Fetch Results. Extract the below Institution related details from Wikipedia:
+The founder of the Institution.
+When it was founded.
+The current branches in the institution.
+How many employees  are working in it.
+A brief 4-line summary of the institution.
+'''
+
 # Step 1: Install necessary libraries 
 # pip install langchain pydantic wikipedia-api 
  
