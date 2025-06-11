@@ -15,7 +15,7 @@ with open(ipc_file_path, "r", encoding="utf-8") as file:
  
 ipc_document = Document(page_content=ipc_text) 
  
-llm = OpenAI(openai_api_key="s8BZSruqi05azWhXqqk1flxfeBWInUbH1sVBDb1m", temperature=0.3)  # Use temperature=0.3 for more factual responses 
+llm = OpenAI(openai_api_key="", temperature=0.3)  # Use temperature=0.3 for more factual responses 
  
 qa_chain = load_qa_chain(llm, chain_type="stuff") 
  

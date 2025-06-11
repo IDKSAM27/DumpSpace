@@ -45,7 +45,7 @@ institution_name = input("Enter the name of the institution: ")
  
 wiki_text = fetch_wikipedia_summary(institution_name) 
  
-cohere_api_key = "s8BZSruqi05azWhXqqk1flxfeBWInUbH1sVBDb1m" 
+cohere_api_key = "" 
 llm = Cohere(cohere_api_key=cohere_api_key) 
  
 prompt = PromptTemplate(input_variables=["text"], template=prompt_template) 

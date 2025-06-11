@@ -15,7 +15,7 @@ file_path = "/content/drive/MyDrive/Text/crow.txt"
 with open(file_path, "r") as file:
     text = file.read()
 
-cohere_api_key = "xNBCmAElkHo9M2tjr6d3SLP80NbMt8MofoUMsREE"
+cohere_api_key = ""
 
 prompt_template = """
 Summarize the following text in two bullet points:
@@ -38,7 +38,7 @@ from langchain.llms import Cohere
 from langchain.prompts import PromptTemplate
 from langchain import LLMChain
 
-cohere_api_key = "s8BZSruqi05azWhXqqk1flxfeBWInUbH1sVBDb1m"
+cohere_api_key = ""
 
 file_path = "D:/Code_dumpspace/GenAI/utils/sample_text.txt"  
 
