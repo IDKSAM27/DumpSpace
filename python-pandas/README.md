@@ -1,9 +1,6 @@
 # Complete Pandas Tutorial (updated by me)
-A comprehensive tutorial on the Python Pandas library, updated to be consistent with best practices and features available in 2024.
 
-<img src='./images/thumbnail.jpg' width=50%>
-
-The tutorial can be watched [here](https://youtu.be/2uvysYbKdjM?si=8UnGt0bwLwo-eEQL)
+Tutorial video can be watched [here](https://youtu.be/2uvysYbKdjM?si=8UnGt0bwLwo-eEQL)
 
 The code that is walked through in the tutorial is in [tutorial.ipynb](./tutorial.ipynb)
 
@@ -17,22 +14,7 @@ To get started with Pandas locally, you can follow these steps to set up your en
 
 First, ensure you have Python installed on your system. You can download Python from the [official website](https://www.python.org/).
 
-### Step 2: Fork the Repository
-
-Fork the repository to your own GitHub account by visiting [complete-pandas-tutorial](https://github.com/KeithGalli/complete-pandas-tutorial) and clicking the "Fork" button in the top-right corner.
-
-### Step 3: Clone the Forked Repository
-
-Clone your forked repository to your local machine. Open a terminal or command prompt and run:
-
-```sh
-git clone https://github.com/yourusername/complete-pandas-tutorial.git
-cd complete-pandas-tutorial
-```
-
-Replace `yourusername` with your actual GitHub username.
-
-### Step 4: Create a Virtual Environment (optional)
+### Step 2: Create a Virtual Environment (optional)
 
 Creating a virtual environment is a good practice to manage dependencies for your projects. Run the following command:
 
@@ -62,7 +44,7 @@ To deactivate the virtual environment, run:
   deactivate
   ```
 
-### Step 5: Install Required Libraries
+### Step 3: Install Required Libraries
 
 With the virtual environment activated, install the necessary libraries from the `requirements.txt` file:
 
@@ -70,11 +52,11 @@ With the virtual environment activated, install the necessary libraries from the
 pip install -r requirements.txt
 ```
 
-### Step 6: Open Your Code Editor
+### Step 4: Open Your Code Editor
 
 You can use your favorite code editor like Visual Studio Code or PyCharm. Open the cloned repository folder in your code editor.
 
-### Step 7: Create a Jupyter Notebook
+### Step 5: Create a Jupyter Notebook
 
 Create a new Jupyter Notebook file in your code editor:
 
@@ -119,6 +101,7 @@ df.tail(2)
 ```
 
 ## Loading Data
+
 Loading data into DataFrames from various file formats is crucial for real-world data analysis.
 
 ```python
@@ -133,6 +116,7 @@ olympics_data = pd.read_excel('./data/olympics-data.xlsx', sheet_name="results")
 ```
 
 ## Accessing Data
+
 Accessing different parts of the DataFrame allows for flexible data manipulation and inspection.
 
 ```python
@@ -158,7 +142,9 @@ df['A'].unique()
 df.shape
 df.size
 ```
+
 ## Filtering Data
+
 Filtering data is essential for extracting relevant subsets based on conditions.
 
 ```python
@@ -174,7 +160,9 @@ bios[bios['name'].str.contains("keith", case=False)]
 # Regex filters
 bios[bios['name'].str.contains(r'^[AEIOUaeiou]', na=False)]
 ```
+
 ## Adding/Removing Columns
+
 Adding and removing columns is important for maintaining and analyzing relevant data.
 
 ```python
@@ -193,7 +181,9 @@ coffee.rename(columns={'new_price': 'price'}, inplace=True)
 # Create new columns from existing ones
 coffee['revenue'] = coffee['Units Sold'] * coffee['price']
 ```
+
 ## Merging and Concatenating Data
+
 Merging and concatenating DataFrames is useful for combining different datasets for comprehensive analysis.
 
 ```python
@@ -206,7 +196,9 @@ usa = bios[bios['born_country']=='USA'].copy()
 gbr = bios[bios['born_country']=='GBR'].copy()
 new_df = pd.concat([usa, gbr])
 ```
+
 ## Handling Null Values
+
 Handling null values is essential to ensure the integrity of data analysis.
 
 ```python
@@ -219,7 +211,9 @@ coffee['Units Sold'].interpolate(inplace=True)
 # Drop rows with NaNs
 coffee.dropna(subset=['Units Sold'], inplace=True)
 ```
+
 ## Aggregating Data
+
 Aggregation functions like value counts and group by help in summarizing data efficiently.
 
 ```python
@@ -233,7 +227,9 @@ coffee.groupby(['Coffee Type'])['Units Sold'].mean()
 # Pivot table
 pivot = coffee.pivot(columns='Coffee Type', index='Day', values='revenue')
 ```
+
 ## Advanced Functionality
+
 Advanced functionalities such as rolling calculations, rankings, and shifts can provide deeper insights.
 
 ```python
@@ -250,7 +246,9 @@ bios['height_rank'] = bios['height_cm'].rank(ascending=False)
 # Shift
 coffee['yesterday_revenue'] = coffee['revenue'].shift(1)
 ```
+
 ## New Functionality
+
 The PyArrow backend offers optimized performance for certain operations, particularly string operations.
 
 ```python
