@@ -14,22 +14,7 @@ To get started with Pandas locally, you can follow these steps to set up your en
 
 First, ensure you have Python installed on your system. You can download Python from the [official website](https://www.python.org/).
 
-### Step 2: Fork the Repository
-
-Fork the repository to your own GitHub account by visiting [complete-pandas-tutorial](https://github.com/KeithGalli/complete-pandas-tutorial) and clicking the "Fork" button in the top-right corner.
-
-### Step 3: Clone the Forked Repository
-
-Clone your forked repository to your local machine. Open a terminal or command prompt and run:
-
-```sh
-git clone https://github.com/yourusername/complete-pandas-tutorial.git
-cd complete-pandas-tutorial
-```
-
-Replace `yourusername` with your actual GitHub username.
-
-### Step 4: Create a Virtual Environment (optional)
+### Step 2: Create a Virtual Environment (optional)
 
 Creating a virtual environment is a good practice to manage dependencies for your projects. Run the following command:
 
@@ -59,7 +44,7 @@ To deactivate the virtual environment, run:
   deactivate
   ```
 
-### Step 5: Install Required Libraries
+### Step 3: Install Required Libraries
 
 With the virtual environment activated, install the necessary libraries from the `requirements.txt` file:
 
@@ -67,11 +52,11 @@ With the virtual environment activated, install the necessary libraries from the
 pip install -r requirements.txt
 ```
 
-### Step 6: Open Your Code Editor
+### Step 4: Open Your Code Editor
 
 You can use your favorite code editor like Visual Studio Code or PyCharm. Open the cloned repository folder in your code editor.
 
-### Step 7: Create a Jupyter Notebook
+### Step 5: Create a Jupyter Notebook
 
 Create a new Jupyter Notebook file in your code editor:
 
