@@ -1,9 +1,6 @@
 # Complete Pandas Tutorial (updated by me)
-A comprehensive tutorial on the Python Pandas library, updated to be consistent with best practices and features available in 2024.
 
-<img src='./images/thumbnail.jpg' width=50%>
-
-The tutorial can be watched [here](https://youtu.be/2uvysYbKdjM?si=8UnGt0bwLwo-eEQL)
+Tutorial video can be watched [here](https://youtu.be/2uvysYbKdjM?si=8UnGt0bwLwo-eEQL)
 
 The code that is walked through in the tutorial is in [tutorial.ipynb](./tutorial.ipynb)
 
@@ -119,6 +116,7 @@ df.tail(2)
 ```
 
 ## Loading Data
+
 Loading data into DataFrames from various file formats is crucial for real-world data analysis.
 
 ```python
@@ -133,6 +131,7 @@ olympics_data = pd.read_excel('./data/olympics-data.xlsx', sheet_name="results")
 ```
 
 ## Accessing Data
+
 Accessing different parts of the DataFrame allows for flexible data manipulation and inspection.
 
 ```python
@@ -158,7 +157,9 @@ df['A'].unique()
 df.shape
 df.size
 ```
+
 ## Filtering Data
+
 Filtering data is essential for extracting relevant subsets based on conditions.
 
 ```python
@@ -174,7 +175,9 @@ bios[bios['name'].str.contains("keith", case=False)]
 # Regex filters
 bios[bios['name'].str.contains(r'^[AEIOUaeiou]', na=False)]
 ```
+
 ## Adding/Removing Columns
+
 Adding and removing columns is important for maintaining and analyzing relevant data.
 
 ```python
@@ -193,7 +196,9 @@ coffee.rename(columns={'new_price': 'price'}, inplace=True)
 # Create new columns from existing ones
 coffee['revenue'] = coffee['Units Sold'] * coffee['price']
 ```
+
 ## Merging and Concatenating Data
+
 Merging and concatenating DataFrames is useful for combining different datasets for comprehensive analysis.
 
 ```python
@@ -206,7 +211,9 @@ usa = bios[bios['born_country']=='USA'].copy()
 gbr = bios[bios['born_country']=='GBR'].copy()
 new_df = pd.concat([usa, gbr])
 ```
+
 ## Handling Null Values
+
 Handling null values is essential to ensure the integrity of data analysis.
 
 ```python
@@ -219,7 +226,9 @@ coffee['Units Sold'].interpolate(inplace=True)
 # Drop rows with NaNs
 coffee.dropna(subset=['Units Sold'], inplace=True)
 ```
+
 ## Aggregating Data
+
 Aggregation functions like value counts and group by help in summarizing data efficiently.
 
 ```python
@@ -233,7 +242,9 @@ coffee.groupby(['Coffee Type'])['Units Sold'].mean()
 # Pivot table
 pivot = coffee.pivot(columns='Coffee Type', index='Day', values='revenue')
 ```
+
 ## Advanced Functionality
+
 Advanced functionalities such as rolling calculations, rankings, and shifts can provide deeper insights.
 
 ```python
@@ -250,7 +261,9 @@ bios['height_rank'] = bios['height_cm'].rank(ascending=False)
 # Shift
 coffee['yesterday_revenue'] = coffee['revenue'].shift(1)
 ```
+
 ## New Functionality
+
 The PyArrow backend offers optimized performance for certain operations, particularly string operations.
 
 ```python
