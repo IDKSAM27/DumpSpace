@@ -1,0 +1,1 @@
+## It's a simple web scraper which parses html visits assets and downloads them into local machine
