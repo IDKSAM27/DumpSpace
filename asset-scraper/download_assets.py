@@ -5,13 +5,11 @@ import concurrent.futures
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
-# --- Configuration ---
-
 # 1. SET THE PATH TO YOUR HTML FILE
-HTML_FILE_PATH = 'main.html' 
+HTML_FILE_PATH = '' # e.g., 'main.html'
 
 # 2. SET THE BASE URL OF THE CDN
-CDN_BASE_URL = 'https://cdn.prod.website-files.com/'
+CDN_BASE_URL = '' # e.g., 'https://cdn.prod.website-files.com/'
 
 # 3. SET THE FILE TYPES TO DOWNLOAD
 ASSET_TYPES = ('.png', '.avif', '.css', '.webp', '.svg', '.js', '.json')
@@ -21,8 +19,6 @@ OUTPUT_DIR = 'downloaded_assets_test'
 
 # 5. SET HOW MANY FILES TO DOWNLOAD AT ONCE
 MAX_WORKERS = 10
-
-# --- End of Configuration ---
 
 # Regex to find urls() in inline styles
 # e.g., style="background-image: url('.../image.png')"
@@ -40,7 +36,7 @@ def find_assets_in_html(html_content):
         'img': ['src', 'srcset'],
         'link': ['href'],
         'source': ['src', 'srcset'],
-        'script': ['src'],  # Added to find .js files
+        'script': ['src'], 
     }
 
     for tag_name, attrs in tags_to_check.items():
@@ -57,7 +53,7 @@ def find_assets_in_html(html_content):
                     else:
                         found_urls.add(url_string)
                         
-    # 2. Find assets in 'data-src' attributes (for Lottie animations)
+    # 2. Find assets in 'data-src' attributes (for Lottie animations), basically json
     for tag in soup.find_all(attrs={'data-src': True}):
         if tag.has_attr('data-src'):
             url = tag['data-src']
