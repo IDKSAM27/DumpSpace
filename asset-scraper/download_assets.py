@@ -5,14 +5,16 @@ import concurrent.futures
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
+# --- Configuration ---
+
 # 1. SET THE PATH TO YOUR HTML FILE
-HTML_FILE_PATH = '' # e.g., 'main.html'
+HTML_FILE_PATH = 'main.html' # or .css files, both are supported right now 
 
 # 2. SET THE BASE URL OF THE CDN
-CDN_BASE_URL = '' # e.g., 'https://cdn.prod.website-files.com/'
+CDN_BASE_URL = 'https://cdn.prod.website-files.com/' # This is just an example base url
 
 # 3. SET THE FILE TYPES TO DOWNLOAD
-ASSET_TYPES = ('.png', '.avif', '.css', '.webp', '.svg', '.js', '.json')
+ASSET_TYPES = ('.png', '.avif', '.css', '.webp', '.svg', '.js', '.json', '.woff', '.woff2', '.ttf')
 
 # 4. SET THE FOLDER TO SAVE ASSETS
 OUTPUT_DIR = 'downloaded_assets_test'
@@ -20,59 +22,61 @@ OUTPUT_DIR = 'downloaded_assets_test'
 # 5. SET HOW MANY FILES TO DOWNLOAD AT ONCE
 MAX_WORKERS = 10
 
+# --- End of Configuration ---
+
 # Regex to find urls() in inline styles
 # e.g., style="background-image: url('.../image.png')"
 STYLE_URL_REGEX = re.compile(r'url\([\'"]?(.*?)[\'"]?\)')
 
 def find_assets_in_html(html_content):
-    """Parses the HTML and finds all relevant asset URLs."""
-    print("Parsing HTML to find assets...")
-    soup = BeautifulSoup(html_content, 'lxml')
+    """Parses HTML or CSS and finds all relevant asset URLs."""
+    print("Parsing file to find assets...")
+
     found_urls = set()
 
-    # 1. Find assets in standard tags (img, link, source, script)
-    #    We check 'src', 'href', and 'srcset' attributes
-    tags_to_check = {
-        'img': ['src', 'srcset'],
-        'link': ['href'],
-        'source': ['src', 'srcset'],
-        'script': ['src'], 
-    }
+    # --- CASE 1: HTML content ---
+    if '<html' in html_content or '<!DOCTYPE' in html_content:
+        soup = BeautifulSoup(html_content, 'lxml')
 
-    for tag_name, attrs in tags_to_check.items():
-        for tag in soup.find_all(tag_name):
-            for attr in attrs:
-                if tag.has_attr(attr):
-                    url_string = tag[attr]
-                    
-                    # 'srcset' can contain multiple URLs, comma-separated
-                    if attr == 'srcset':
-                        # 'image.png 1x, image-2x.png 2x' -> ['image.png', 'image-2x.png']
-                        urls = [u.strip().split()[0] for u in url_string.split(',')]
-                        found_urls.update(urls)
-                    else:
-                        found_urls.add(url_string)
-                        
-    # 2. Find assets in 'data-src' attributes (for Lottie animations), basically json
-    for tag in soup.find_all(attrs={'data-src': True}):
-        if tag.has_attr('data-src'):
-            url = tag['data-src']
-            found_urls.add(url)
+        tags_to_check = {
+            'img': ['src', 'srcset'],
+            'link': ['href'],
+            'source': ['src', 'srcset'],
+            'script': ['src'],
+        }
 
-    # 3. Find assets in inline 'style' attributes
-    for tag in soup.find_all(style=True):
-        style_string = tag['style']
-        matches = STYLE_URL_REGEX.findall(style_string)
+        for tag_name, attrs in tags_to_check.items():
+            for tag in soup.find_all(tag_name):
+                for attr in attrs:
+                    if tag.has_attr(attr):
+                        url_string = tag[attr]
+                        if attr == 'srcset':
+                            urls = [u.strip().split()[0] for u in url_string.split(',')]
+                            found_urls.update(urls)
+                        else:
+                            found_urls.add(url_string)
+
+        # Inline style attributes
+        for tag in soup.find_all(style=True):
+            style_string = tag['style']
+            matches = STYLE_URL_REGEX.findall(style_string)
+            for url in matches:
+                found_urls.add(url)
+
+    # --- CASE 2: CSS content ---
+    else:
+        matches = STYLE_URL_REGEX.findall(html_content)
         for url in matches:
             found_urls.add(url)
 
-    # 4. Filter the found URLs
+    # --- Filter matching CDN assets and extensions ---
     filtered_assets = set()
     for url in found_urls:
         if url and url.startswith(CDN_BASE_URL) and url.endswith(ASSET_TYPES):
             filtered_assets.add(url)
-            
+
     return list(filtered_assets)
+
 
 def download_asset(url):
     """Downloads a single asset from a URL and saves it."""
