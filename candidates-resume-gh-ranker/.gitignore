@@ -1,0 +1,5 @@
+candidates.csv
+candidates_ranked.csv
+.env
+resumes/
+.venv/
