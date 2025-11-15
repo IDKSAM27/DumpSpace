@@ -38,6 +38,8 @@ GITHUB_TOKEN=
 
 ---
 
-### check_models.py:
-> WILL CHECK THE FOR THE GEMINI'S SUPPORTED MODELS
+### check_models_gemini.py:
+> WILL CHECK FOR THE GEMINI'S SUPPORTED MODELS
 
+### check_models_openai.py:
+> WILL CHECK FOR THE OPENAI'S SUPPORTED MODELS
